@@ -1,33 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers/index.js';
-import * as rootReducers from '../reducers';
 import { createRedux, createDispatcher, composeStores } from 'redux';
-import combinedReducer from '../reducers/index.js';
-import { alert, authentication, registration, users } from '../reducers'
-//import { alert } from from '../reducers/alert.reducer.js'
+import { alert } from '../reducers/alert.reducer.js'
+import { authentication } from '../reducers/authentication.reducer.js'
+import { registration } from '../reducers/registration.reducer.js'
+import { users } from '../reducers/users.reducer.js'
 
 const loggerMiddleware = createLogger();
-//let state = this.props.redux.getState();
-
-/*export const store = createStore(composeStores(Object.assign(
-    rootReducers, state)),
-    applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
-    )
-);*/
-import { combineReducers } from 'redux';
-var combinedReducers = combineReducers({
-  alert,
-  authentication,
-  registration,
-  users
-});
-//export default combinedReducers;
-
-
 
 export const store = createStore(
   combineReducers({

@@ -10,10 +10,8 @@ import { App } from 'App';
 import { configureFakeBackend } from 'AuthBackend';
 configureFakeBackend();
 console.log({store}.length);
-debugger;
+
 render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <Provider store={store}><App /></Provider>,
     document.getElementById('app')
 );
